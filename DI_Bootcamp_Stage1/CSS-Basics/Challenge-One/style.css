@@ -1,0 +1,10 @@
+body{
+    background-color: #55CCFF;
+}
+li{
+    text-align: center;
+    list-style: none;
+}
+li::first-letter{
+   font-size:200%
+}

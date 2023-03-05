@@ -1,0 +1,48 @@
+*{
+    text-align: right;
+}
+body{
+    background-image: url(chocolate-chip-cookie.webp);
+    background-size: cover;
+}
+h2,p {
+    color:#184900;
+    background-color:#306E12;
+    text-align: center;
+    border:5px solid #ABDD93;
+    cursor: pointer;
+}
+/* this is a comment */
+p{
+    color:#8eb77a;
+    line-height:20px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight:bold;
+    font-size: 150%;
+    font-family: 'Tilt Neon', cursive;
+}
+img{
+    float:left;
+}
+footer{
+    font-size:200% ;
+    clear: both;
+    text-align: center;
+}
+li{
+   list-style: none; 
+   display: inline-block
+}
+.webtext:last-child{ 
+    border: 5px dashed blue;
+} 
+.active{ 
+    color: red 
+}
+#div1{
+    background-color:lightblue ;
+}
+#div2{
+    background-color:pink ;
+}

@@ -1,0 +1,26 @@
+.box-1, .box-2,.box-3 {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    text-align: center;
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 2.5% ;
+}
+.box-1{
+    width: 20%;
+    float:left;
+    background-color: tomato;
+}
+
+.box-2{
+
+    width:70%;
+    background-color: lightblue;
+    display: inline-block
+}
+.box-3{
+    width:95%;
+    background-color: lightyellow;
+    display: inline-block;
+}

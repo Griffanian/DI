@@ -1,0 +1,27 @@
+* {
+    color: blue;
+}
+footer p {
+    background-color:red;
+}
+h1+h4 {
+    background-color:blue;
+}
+ul > li {
+    background-color:blue;
+}
+a[href="#"] {
+    background-color:blue;
+}
+/* selector:pseudo-class {
+    property: value;}
+    li:first-child {
+    background-color:blue;
+    }
+    button {
+        background-color: red;
+    }
+    
+    button:hover {
+      background-color: blue;
+    } */

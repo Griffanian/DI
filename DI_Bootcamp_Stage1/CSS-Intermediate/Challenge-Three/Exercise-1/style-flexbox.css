@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.box-1, .box-2,.box-3 {
+    height: 100px;
+    font-size: 40px;
+    text-align: center;
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 2.5% ;
+}
+.box-1{
+    width: 20%;
+    background-color: tomato;
+}
+.box-2{
+    width:70%;
+    background-color: lightblue;
+}
+.box-3{
+    width:95%;
+    background-color: lightyellow;
+}
