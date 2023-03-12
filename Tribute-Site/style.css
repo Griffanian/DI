@@ -1,0 +1,147 @@
+/* Global styles */
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+body{
+	display: flex;
+	flex-direction: column;
+	overflow-y:scroll;
+	background-color: #212025;
+}
+.wrap1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #212025;
+	color: #333;
+	height: 100vh;
+}
+#head1{
+	width: 100vw;
+	background-color: #212025;
+}
+header{
+	z-index: 99;
+	position: fixed;
+	top: 0;
+	width: 40vw;
+	height: 7vh;
+	margin-right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #212025;
+}
+.wrap1 header h4{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color:lightgray;
+}
+#logo{
+	width: auto;
+	height: 5vh;
+}
+.left{
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width:40vw;
+	height: 100vh;
+	background-color: #212025;
+	font-family:  sans-serif;
+	color:lightgray;
+}
+.left h1{
+	color: white;
+	font-size: 9vw;
+}
+.left #foot1 h2{
+	color:white;
+}
+.left h3{
+	color: lightgray;
+}
+#line{
+	color: #AA96DA;
+	font-size: xx-large;
+}
+footer{
+	position: absolute;
+	width:40vw;
+	bottom:0;
+}
+#will{
+	position: absolute;
+	background-color: transparent;
+	height:auto;
+	width: 33vw;
+	left: 46vw;
+	bottom: 0;
+}
+#middle{
+	height: 100vh;
+	width: 28vw;
+	background-color: #AA96DA;
+}
+#right{
+	margin-top: 10vh;
+	height: 100vh;
+	width:25vw;
+	background-color: #212025;
+	color: white;
+}
+
+#right h2{
+	text-align: center;
+}
+#right ul{
+	padding-left: 2vw;
+}
+a{
+	color: #AA96DA;
+}
+.wrap2{
+	width: 90vw;
+	height: 90vh;
+	color: white;
+	margin-top: 10vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	align-items: flex-start;
+}
+#head2{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;	
+}
+#bio{
+	width: 94vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}
+#head2 p{
+	font-size: 3vh;
+}
+.wrap2{
+	margin-left:7vw; 
+}
+.wrap2 hr{
+	width: 39vw;
+	height: 1px;
+}
+.wrap2 h1 {
+	font-size: 10vh;
+}
+
+
+
+
+
