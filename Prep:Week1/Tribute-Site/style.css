@@ -81,7 +81,7 @@ footer{
 	background-color: transparent;
 	height:auto;
 	width: 33vw;
-	left: 46vw;
+	left: 44vw;
 	bottom: 0;
 }
 #middle{
@@ -129,6 +129,10 @@ a{
 }
 #head2 p{
 	font-size: 3vh;
+}
+#head2 img{
+	float: left;
+	width: 25vw;
 }
 .wrap2{
 	margin-left:7vw; 

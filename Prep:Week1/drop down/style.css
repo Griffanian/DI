@@ -1,0 +1,27 @@
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+nav {
+  display: block;
+  width: 200px;
+}
+
+.scrolling-box {
+  display: block;
+  height: 200px;
+  overflow-y: scroll;
+  text-align: center;
+  width: 200px;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
