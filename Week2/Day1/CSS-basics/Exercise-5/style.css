@@ -1,0 +1,15 @@
+div:first-of-type > ul > li{
+    text-transform: uppercase;
+}
+div:first-of-type > ul > li:nth-of-type(2){
+    color: blue;
+}
+div:last-of-type > p:first-of-type {
+    background-color: pink;
+    color: white;
+}
+div:last-of-type > p:last-of-type {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 20px;
+}

@@ -1,0 +1,30 @@
+article{
+    background-color:#C0F7D7;
+    border-color:#27C76B;
+    border-style:ridge;
+    padding: 30px;
+    margin: 100px;
+}
+section{
+    position: relative;
+    background-color:lightgray;
+    height: 95px;
+    width: 300px;
+    border:2px solid white;
+}
+div:first-of-type{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 80px;
+    width:80px;
+    background-color: lightblue;
+}
+div:last-of-type{
+    position: absolute;
+    top:5px;
+    left:5px;
+    height: 80px;
+    width:80px;
+    background-color: orange;
+}

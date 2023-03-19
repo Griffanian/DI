@@ -1,0 +1,13 @@
+div{
+    display: inline-block;
+    padding: 30px;
+}
+#one{
+    background-color: red;
+}
+#two{
+    background-color: white;
+}
+#three{
+    background-color: blue;
+}

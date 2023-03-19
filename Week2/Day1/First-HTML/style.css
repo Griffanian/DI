@@ -1,0 +1,38 @@
+p > span{
+    background-color: yellow;
+}
+div:first-of-type{
+    margin-left: 50px;
+}
+ol{
+    list-style:upper-roman;
+}
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div:first-of-type > h2{
+    display:flex;
+    width:min-content;
+}
+div:last-of-type > span {
+    display: flex;
+    justify-content: center;
+    width:90%;
+    border: red 2px solid;
+    color:red;
+}
+table{
+    width:90%;
+    border-collapse: collapse;
+}
+th,td{
+    border: black 2px solid;
+}
+img{
+    width: 500px;
+    height: auto;
+    border:orange 5px solid;
+}
