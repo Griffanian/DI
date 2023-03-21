@@ -1,0 +1,26 @@
+section{
+    display: flex;
+    height: 100vh;
+}
+div{
+    height: 10%;
+    background-color: skyblue;
+    width: 100vw;
+    font-size: 40px;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#one{
+    background-color: purple;
+    flex:1;
+}
+#two{
+    flex: 2;
+}
+#three{
+    background-color: tomato;
+    flex: 2;
+}

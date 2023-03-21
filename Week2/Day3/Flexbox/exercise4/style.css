@@ -1,0 +1,24 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 500px;
+    width: 800px;
+    border: 2px solid red;
+    padding: 0 5px;
+}
+div{
+    height: 32%;
+    background-color: skyblue;
+    width: 70%;
+    font-size: 80px;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#two{
+    width: 100%;
+    align-self: flex-end;
+}

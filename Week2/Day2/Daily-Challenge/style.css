@@ -49,6 +49,8 @@ body{
 .big > div {
     position: absolute;
     bottom: 0;
+    width: 100vw;
+    height: max-content;
 }
 div img{
     width: 100vw;
@@ -56,8 +58,14 @@ div img{
 }
 div h1{
     font-size: 100px;
+    position: absolute;
+    bottom:100px
 }
 div p {
+    width: 50vw;
+    position: absolute;
+    bottom:100px;
+    right: 0;
     font-size: larger;
 }
 @media only screen and (max-width:1200px){
@@ -65,6 +73,7 @@ div p {
         background-color:red;
         color:white;
     }
+
 }
 @media only screen and (max-width:992px){
     li > a{
@@ -74,13 +83,28 @@ div p {
         }
     div > h1{
         font-size: 25px;
+        position: fixed;
+        top: 100px;
     }
     div > p{
+        display: flexbox;
         font-size: 10px;
+        left:0;
+        bottom: 0;
     }
     nav > ul{
         background-color: lightgreen;
     }
+    /* div >div{
+        display: block;
+        position: relative;
+    }
+    div h1 {
+        display: block;
+        position: relative;
+        left: 0;
+        right: 0;
+    } */
 }
 @media only screen and (max-width:768px){
     div > h1{
