@@ -2,7 +2,26 @@
 	margin:0;
 	padding:0;
 	box-sizing: border-box;
-	scrollbar-color: rebeccapurple green;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey; 
+border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: grey; 
+border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: darkgray; 
 }
 body{
 	display: flex;
@@ -114,7 +133,6 @@ a{
 	display:block;
 	position: relative;
 	height: 100vh;
-	
 	display: block;
 	overflow-y: scroll;
 	scrollbar-color: red yellow;!important
@@ -126,6 +144,7 @@ a{
 	margin-top: 10vh;
 	display: flex;
 	flex-direction: row;
+	margin: 0 auto;
 }
 #head2{
 	display: flex;
@@ -219,6 +238,4 @@ ul:first-of-type > li{
 	padding-bottom: 7.5px;
 }
 
-::-webkit-scrollbar-thumb {
-	background-color: yellow;
-  }
+
