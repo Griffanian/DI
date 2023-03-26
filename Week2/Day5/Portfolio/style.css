@@ -5,14 +5,16 @@
 body{
 	padding: 0;
 	margin: 0;
-	background:#212025;
+	/* background:#212025; */
 	overflow-x: hidden;
+	overflow-y:scroll ;
 }
 html,h1,h2,h3,h4,h5,h6,a{
 	font-family: "Raleway";
 }
-
-.navbar{ background:#8d69b8;}
+.navbar{ 
+	background:#8d69b8;
+}
 
 .nav-link, .navbar-brand { color: #f4f4f4; cursor: pointer;}
 
@@ -174,20 +176,27 @@ address a {
 }
 #portfolio > .container > .row{
 	margin: 0;
+	justify-content: center;
 	width: 100%;
 }
 #portfolio > .container > .row > div{
 	width: 300px;
 	height: 210px;
 	overflow-y: scroll;
+	overflow-x: hidden;
 	margin: 0;
 	padding: 0;
 }
 #portfolio > .container > .row > div > a{
 	position: absolute;
-	right: 0;
+	right:0;
 }
 #portfolio > .container > .row > div > a > img{
 	width: 300px;
 	margin: 0;
+}
+@media screen and (max-width: 992px) {
+	.about span{
+		left:40px;
+	}
 }
