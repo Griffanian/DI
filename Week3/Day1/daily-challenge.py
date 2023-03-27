@@ -11,7 +11,7 @@ while True:
     else:
         break
 str_list = list(str_input)
-print(str_list[0],str_list[len(str_list)-1])
+print(str_input[0],str_input[len(str_input)-1])
 str_list2=[]
 
 for i in range(len(str_list)):
