@@ -89,14 +89,14 @@
 
 # print(f"your total is {price}")
 
-# names = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Isaac", "Jack"]
-# names1=[]
+names = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Isaac", "Jack"]
+names1=[]
 
-# for i in range(len(names)-1):
-#     age_input=int(input(f"{names[i]} what is your age? "))
-#     if 16 < age_input < 21:
-#         names1.append(names[i])
-# print(names1)
+for teen in names:
+    age_input=int(input(f"{teen} what is your age? "))
+    if 16 < age_input < 21:
+        names1.append(teen)
+print(names1)
 
 
 # Exercise 10
@@ -110,16 +110,16 @@
 
 # Exercise 11
 
-sandwich_orders = ["Pastrami sandwich", "Tuna sandwich", "Avocado sandwich", "Pastrami sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
-finished_samwiches=[]
+# sandwich_orders = ["Pastrami sandwich", "Tuna sandwich", "Avocado sandwich", "Pastrami sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
+# finished_samwiches=[]
 
-print("The deli is out of pastrami")
+# print("The deli is out of pastrami")
 
-while "Pastrami sandwich" in sandwich_orders:
-    sandwich_orders.remove("Pastrami sandwich")
+# while "Pastrami sandwich" in sandwich_orders:
+#     sandwich_orders.remove("Pastrami sandwich")
 
-for x in range(len(sandwich_orders)):
-    finished_samwiches.append(sandwich_orders[x])
-    print(f"I made your {sandwich_orders[x]}")
+# for x in range(len(sandwich_orders)):
+#     finished_samwiches.append(sandwich_orders[x])
+#     print(f"I made your {sandwich_orders[x]}")
 
 
