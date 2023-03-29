@@ -52,19 +52,19 @@
 
 # Exercise 4
 
-users = ["Mickey","Minnie","Donald","Ariel","Pluto"]
+# users = ["Mickey","Minnie","Donald","Ariel","Pluto"]
 
 # disney_users_A={key:i for i, key in enumerate(users)}
 
-# print(disney_users_A)
+print(disney_users_A)
 
-# disney_users_B=dict(enumerate(users))
+disney_users_B=dict(enumerate(users))
 
-# print(disney_users_B)
+print(disney_users_B)
 
-# users.sort()
-# disney_users_C={key:i for i, key in enumerate(users)}
-# print(disney_users_C)
+users.sort()
+disney_users_C={key:i for i, key in enumerate(users)}
+print(disney_users_C)
 
 disney_users_C={i:value for i, value in enumerate(users) if ('i' in value) or (list(value)[0]=='P') or (value[0]=="M") }
 print(disney_users_C)
