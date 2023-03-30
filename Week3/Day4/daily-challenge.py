@@ -9,10 +9,18 @@ $a
 matrix_rows = matrix_str.split('\n')
 matrix = [list(values) for values in list(matrix_rows)]
 
-columns=[]
+columns=''
+non_alpha=0
 for x in range(len(matrix[0])):
-    column = [values[x] for values in list(matrix_rows) if values[x].isalpha()==True]
-    columns+=column
-print(''.join(columns))
+    for i,values in enumerate(list(matrix_rows)):
+        if values[x].isalpha():
+            columns += values[x]
+            non_alpha=0
+        else:
+            non_alpha+=1
+        if non_alpha ==2:
+            columns+= ' '
+    
+print((columns))
         
 
