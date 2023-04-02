@@ -1,4 +1,4 @@
-def display_board(current_board) -> str:
+def display_board(current_board:list) -> str:
     board_str='***************\n'
     for i,row in enumerate(current_board):
         board_str+='*  '+row[0]+' | '+row[1]+' | '+row[2]+'  *'+'\n'

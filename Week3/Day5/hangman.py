@@ -113,7 +113,7 @@ def not_in_guesses(letter:str) -> bool:
         return True
     else: 
         return False
-def player_input(guesses)->str:
+def player_input(guesses:list)->str:
     while True:
         letter_input=input('Guess a letter. ')
         if len(letter_input)==1:
@@ -139,7 +139,7 @@ def player_input(guesses)->str:
     guesses=guesses.sort()
     display_board(stage)
 
-def play(guesses):
+def play(guesses:list)-> str:
     while True:
         player_input(guesses)
         if stage >11:
