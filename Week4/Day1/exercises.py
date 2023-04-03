@@ -86,103 +86,106 @@
 
 # Exercise 4 
 
-# class Zoo:
-#     def __init__(self, zoo_name) -> None:
-#         self.zoo_name=zoo_name
+class Zoo:
+    def __init__(self, zoo_name) -> None:
+        self.zoo_name=zoo_name
+        self.animals=['sad','saddsa','fgd','sdfcx','fdgs','hfbgdfs']
 
-#     zoo_name=""
-#     animals=[]
-
-#     def add_animals(new_animal:str):
-#         if new_animal not in Zoo.animals:
-#             Zoo.animals.append(new_animal)
-#             print('You just added ', new_animal)
-#         else:
-#             print('That animal is already in the safari! ')
+    def add_animals(self,new_animal:str) -> str:
+        if new_animal not in self.animals:
+            self.animals.append(new_animal)
+            print('You just added ', new_animal)
+        else:
+            print('That animal is already in the safari! ')
     
-#     def get_animals():
-#         print(Zoo.animals)
+    def get_animals(self):
+        print(self.animals)
 
-#     def sell_animals(animal_sold):
-#         if animal_sold in Zoo.animals:
-#             Zoo.animals.remove(animal_sold)
-#             print('You just sold ', animal_sold)
-#         else:
-#             print('That animal is not in this Safari. ')
+    def sell_animals(self,animal_sold):
+        if animal_sold in self.animals:
+            self.animals.remove(animal_sold)
+            print('You just sold ', animal_sold)
+        else:
+            print('That animal is not in this Safari. ')
     
-#     def sort_animals(animals)-> list:
-#         animals.sort()
+    def sort_animals(self,animals)-> list:
+        animals.sort()
+        letters=[]
+        for i,item in enumerate(animals):
+            if i == 0:
+                letters.append([item])
+            else:
+                if item[0] == animals[i-1][0]:
+                    letters[-1].append(item)
+                else:
+                    letters.append([item])
+        return letters
+    def get_groups(self):
+        out_list=[]
+        for i,item in enumerate(self.sort_animals(self.animals)):
+            if isinstance(item,list) == True and len(item)==1:
+                out_list.append(f"{i+1} : {item[0]}")
+            else:
+                out_list.append(f"{i+1} : {item}")
+        print(*out_list, sep='\n')
 
-#         letters=[]
-#         for i,item in enumerate(animals):
-#             if i == 0:
-#                 letters.append([item])
-#             else:
-#                 if item[0] == animals[i-1][0]:
-#                     letters[-1].append(item)
-#                 else:
-#                     letters.append([item])
-                    
-#         return letters
+    def ramat_gan_safari(self):
 
-#     def get_groups():
-#         print(*Zoo.sort_animals(Zoo.animals), sep='\n')
+        self.zoo_name='Ramat Gan Safari'
+        print(f'Welcome to {self.zoo_name}')
 
-#     def ramat_gan_safari():
+        while True:
+            animal_input=input('Which animal would you like to add to the zoo if finished type "done"? ')
+            if animal_input == 'done':
+                break
+            else:
+                self.add_animals(animal_input)
 
-#         Zoo.zoo_name='Ramat Gan Safari'
-#         print(f'Welcome to {Zoo.zoo_name}')
+        print('\nThe animals in the Zoo are...\n')
+        self.get_animals()
+        origin_animals=[item for item in self.animals]
+        while True:
+            user_input=input('''
+To sort the animals type "sort".
+To print the list of original animals type "get1". 
+To print animals in first letter groups type "get2".
+To sell an animal type "sell".
+To add an animal type "add".
+To end program type "end". ''')
 
-#         while True:
-#             animal_input=input('Which animal would you like to add to the zoo if finished type "done"? ')
-#             if animal_input == 'done':
-#                 break
-#             else:
-#                 Zoo.add_animals(animal_input)
+            if user_input == 'sort':
+                self.animals=self.sort_animals(self.animals)
+                print('\nList of animals has been sorted.')
 
-#         print('\nThe animals in the Zoo are...\n')
-#         Zoo.get_animals()
-#         origin_animals=[item for item in Zoo.animals]
-#         while True:
-#             user_input=input('''
-# To sort the animals type "sort".
-# To print the list of original animals type "get1". 
-# To print animals in first letter groups type "get2".
-# To sell an animal type "sell".
-# To add an animal type "add".
-# To end program type "end". ''')
+            elif user_input == 'get1':
+                print('\n',origin_animals)
 
-#             if user_input == 'sort':
-#                 Zoo.animals=Zoo.sort_animals(Zoo.animals)
-#                 print('\nList of animals has been sorted.')
+            elif user_input == 'get2':
+                print('\nThe animals in the zoo (A-Z)')
+                self.get_groups()
 
-#             elif user_input == 'get1':
-#                 print('\n',origin_animals)
-
-#             elif user_input == 'get2':
-#                 print('\nThe animals in the zoo (A-Z)')
-#                 Zoo.get_groups()
-
-#             elif user_input == 'sell':
-#                 while True:
-#                     sell_input=input('\nWhich animal would you like to sell if finished selling type "done". ')
-#                     if sell_input == 'done':
-#                         break
-#                     else:
-#                         Zoo.sell_animals(sell_input)
-#             elif user_input == 'add':
-#                 while True:
-#                     add_input=input('\nWhich animal would you like to add if finished adding type "done". ')
-#                     if add_input == 'done':
-#                         break
-#                     else:
-#                         Zoo.add_animals(add_input)
-#             elif user_input == 'end':
-#                 print("\nThank you for using our program!!")
-#                 break
+            elif user_input == 'sell':
+                while True:
+                    sell_input=input('\nWhich animal would you like to sell if finished selling type "done". ')
+                    if sell_input == 'done':
+                        break
+                    else:
+                        self.sell_animals(sell_input)
+            elif user_input == 'add':
+                while True:
+                    add_input=input('\nWhich animal would you like to add if finished adding type "done". ')
+                    if add_input == 'done':
+                        break
+                    else:
+                        self.add_animals(add_input)
+            elif user_input == 'end':
+                print("\nThank you for using our program!!")
+                break
             
-#             else:
-#                 print("That was not one of the options! Try again.")
+            else:
+                print("That was not one of the options! Try again.")
 
-# Zoo.ramat_gan_safari()
+ramat_gan=Zoo("Ramat Gan Zoo")
+ramat_gan.ramat_gan_safari()
+
 
