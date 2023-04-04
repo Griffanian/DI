@@ -38,9 +38,7 @@ class Pagination:
 alphabetList = list("abcdefghijklmnopqrstuvwxyz")
 p=Pagination(alphabetList,3)
 
-print(p.get_visible_items(),p.current_page,p.total_pages)
-p.last_page().next_page()
-print(p.get_visible_items(),p.current_page)
+
 
 
 
