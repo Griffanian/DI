@@ -8,4 +8,3 @@ for item in french_words:
     translation = translator.translate(item)
     eng_word.append(translation.text)
 print(eng_word)
-# print(f"{translation.origin} ({translation.src}) --> {translation.text} ({translation.dest})")
