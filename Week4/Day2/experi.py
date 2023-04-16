@@ -6,7 +6,7 @@ class Live:
         self.pos=pos
         Live.instances.append(pos)
 
-    def live_neigbours(pos:tuple[int,int]):
+    def live_neigbours(board,pos:tuple[int,int]):
         neigbours=0
         for i in range(-1,2):
             row=pos[0]+i
@@ -19,47 +19,53 @@ class Live:
                                 neigbours+=1
         return neigbours
 
-    def dies(pos:tuple):
+    def dies(board,pos:tuple):
         board[pos[0],pos[1]] = 0
-    def born(pos:tuple):
+    def born(board,pos:tuple):
         board[pos[0],pos[1]] = 1
-# board=np.array([
-#     [0, 0, 1, 0, 0, 0],
-#     [1, 0, 0, 1, 0, 0], 
-#     [0, 0, 1, 0, 1, 0], 
-#     [1, 0, 0, 1, 0, 0], 
-#     [0, 1, 1, 0, 1, 0], 
-#     [1, 0, 0, 1, 0, 0]
-#     ])       
-board=np.array([[1,0,1],[1,1,0],[1,0,1]])
-rows,col = np.where(board==1)
-live_positions=[(item,col[i]) for i,item in enumerate(rows)]
 
-def run():
-    finished = 0
-    
-    for i in range(5):
-        last_board=board
-        # print(*board,sep='\n')
+    def calc(board):
+        new_board=board
         for i,item in enumerate(board):
             for x,value in enumerate(item):
-                neighbors = Live.live_neigbours((i,x))
+                neighbors = Live.live_neigbours(board,(i,x))
                 if value == 1:
                     live = True
                 else:
                     live = False
 
-                if live == True and neighbors < 2:
-                    Live.dies((i,x))
+                if live == True and (neighbors < 2):
+                    Live.dies(new_board,(i,x))
+                if live == True and (neighbors > 3):
+                    Live.dies(new_board,(i,x))
+                if live == False and (neighbors == 3):
+                    Live.born(new_board,(i,x))
+        return new_board
+board_origin=np.array([
+    [0, 0, 1, 0, 0, 0],
+    [1, 0, 0, 1, 0, 0], 
+    [0, 0, 1, 0, 1, 0], 
+    [1, 0, 0, 1, 0, 0], 
+    [0, 1, 1, 0, 1, 0], 
+    [1, 0, 0, 1, 0, 0]
+    ])       
 
-                if live == True and neighbors > 3:
-                    Live.dies((i,x))
-                if live == False and neighbors == 3:
-                    Live.born((i,x))
-        if np.array_equiv(board,last_board):
-            finished+=1
-            print(*board,sep='\n')
-            print(*last_board,sep='\n')
-        print(finished)
-run()
+blank_board=np.array([[0,0,0],[0,0,0],[0,0,0]])
+rows,col = np.where(board_origin==1)
+live_positions=[(item,col[i]) for i,item in enumerate(rows)]
 
+def run(board):
+    print(board,0)
+    q=1
+    while True:
+        new_board=Live.calc(board_origin)
+        print(new_board,q)
+        if (board==new_board).all():
+            print(Live.calc(new_board),q+1)
+            return 'worked'
+        else:
+            board=new_board
+        q+=1
+            
+        
+print(run(board_origin))
