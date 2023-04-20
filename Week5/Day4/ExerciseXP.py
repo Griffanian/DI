@@ -5,10 +5,10 @@ user = 'postgres',
 password= '1234', 
 dbname = 'postgres')
 
-def setup_database():
+def setup_database(name='resturants'):
     try:
         conn.autocommit = True
-        sql = ''' CREATE database resturants '''
+        sql = f''' CREATE database {name}'''
         cursor = conn.cursor()
         cursor.execute(sql)
         conn.close()
@@ -16,40 +16,36 @@ def setup_database():
         pass
     
 
-def setup_table():
+def setup_table(name='menu',dname = 'resturants',cols='name varchar(50), price int'):
     conn = psycopg2.connect(
     host = 'localhost',
     user = 'postgres',
-    password= '1234', 
-    dbname = 'resturants')
+    password= '1234',dbname=dname)
     try:
         conn.autocommit = True
-        sql = ''' CREATE table menu(
-        name varchar(50),
-        price int
-        )'''
+        sql = f''' CREATE table {name}({cols})'''
         cursor = conn.cursor()
         cursor.execute(sql)
         conn.close()
     except:
         pass
 
-def run_change_query(query: str):
+def run_change_query(query: str, dname = 'resturants'):
     conn = psycopg2.connect(
     host = 'localhost',
     user = 'postgres',
     password= '1234', 
-    dbname = 'resturants') 
+    dbname=dname) 
     with conn.cursor() as cursor:
         cursor.execute(query)
         conn.commit()
 
-def run_select_query(query: str):
+def run_select_query(query: str,dname='resturants'):
     conn = psycopg2.connect(
     host = 'localhost',
     user = 'postgres',
     password= '1234', 
-    dbname = 'resturants')
+    dbname = dname)
     with conn.cursor() as cursor:
         cursor.execute(query)
         result = cursor.fetchall()
@@ -79,7 +75,8 @@ class MenuItem:
         names_list=[item[0] for item in MenuItem.all()]
         if name in names_list:
             return MenuItem.instances[name]
-print(MenuItem.all())
+        
+# print(MenuItem.all())
 # item = MenuItem('Burger', 35)
 # item.save()
 # item.delete()
@@ -87,3 +84,5 @@ print(MenuItem.all())
 # item2 = MenuItem.get_by_name('Beef Stew')
 # items = MenuItem.all()
 # print(item.name,item2,items)
+
+
