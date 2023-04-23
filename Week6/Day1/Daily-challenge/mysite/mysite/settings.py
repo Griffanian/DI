@@ -20,16 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^7%kpz!^9qdtb-=(-z4r*z^d58g7737q*!fo76u^3hbgsmzy#o'
+SECRET_KEY = 'django-insecure-238v%_@%_da#s-us5cwa4jf34ik_t80=wd%7mutvow&e_swjq9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-  'localhost',
-  '127.0.0.1',
-  '111.222.333.444',
-  'mywebsite.example']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -41,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls'
+    'polls',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +78,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'animal',
+        'NAME': '114',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
