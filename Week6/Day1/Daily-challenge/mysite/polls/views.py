@@ -3,10 +3,13 @@ from django.http import HttpResponse
 from .models import Person
 
 def display_phone(request):
-    context = {'objects':Person.objects.all()}
+    objects=Person.objects.all().order_by('phone_number')
+    context = {'objects':objects}
     return render(request,'posts/display_phone.html',context)
+
 def display_name(request):
-    context = {'objects':Person.objects.all()}
+    objects=Person.objects.all().order_by('name')
+    context = {'objects':objects}
     return render(request,'posts/display_name.html',context)
 
 # def family(request,id):
@@ -21,5 +24,5 @@ def display_name(request):
 #     return render(request, 'posts/animal.html', context)
 
 # def animals(request):
-#     context = {'names':' '.join(name_list)}
+#     context = {'phones':' '.join(name_list)}
 #     return render(request, 'posts/animals.html', context)

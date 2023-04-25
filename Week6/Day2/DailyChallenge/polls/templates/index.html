@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<h1>{{name}}</h1>
+<div style="display: flex; flex-wrap: wrap;">
+    {%for item in objects%}
+        <div style="padding: 10px;">
+            <h4>{{item}}</h4>
+            <iframe src={{item.url}} width="200" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <p>Uploaded by {{item.uploader_name}}</p>
+            <!-- <p>{{item.category}}</p> -->
+        </div>
+    {%endfor%}
+</div>
+{% endblock %}
+

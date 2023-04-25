@@ -1,5 +1,5 @@
 """
-URL configuration for mysite project.
+URL configuration for DailyChallenge project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from polls import views
+from polls import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('persons/phonenumber', views.display_phone),
-    path('persons/name', views.display_name),
+    path('home/', views.homepage),
+    path('new_gif/',views.new_gif),
+    path('new_cat/',views.new_cat),
+    path('cat_view/<str:id>',views.display_cat),
+    path('gif_view/<str:id>',views.display_gif)
 ]
