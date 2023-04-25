@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<form style="display:inline-flex; flex-direction:column" method="post">
+    {%csrf_token%}
+    {{form}}
+    <br />
+    <input type="submit">
+</form>
+
+{% endblock %}

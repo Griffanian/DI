@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div style="padding-left: 10px;">
+    {%for item in objects%}
+    <h4>{{item.title}}</h4>
+    <p>{{item.details}}</p>
+    <p>created on: {{item.date_creation}}</p>
+    <p>should be finished by: {{item.date_completion}}</p>
+    <div style="display: flex;">
+        <p>#{{item.category}}</p>
+    </div>
+    
+    {%endfor%}
+</div>
+{% endblock %}
