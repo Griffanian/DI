@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div style="display:flex; flex-direction:column;">
+    <h4>Customer Info</h4>
+    <div style="border: 1px solid black; margin:5px; padding:5px; width:300px">     
+        <p>Name:{{item}}</p>
+        <p>Id:#{{item.id}}</p>
+        <p>Email:{{item.email}}</p>
+        <p>Phone Number: {{item.phone}}</p>
+        <p>Address: {{item.address}}</p>
+        <p>City: {{item.city}}</p>
+        <p>country: {{item.country}}</p>
+    </div>
+    <h4>Rentals</h4>
+    <div>
+        {%for item in rentals%}
+            <div style="border: 1px solid black; margin:5px; padding:5px; width:300px">     
+                <a href="/rent/rental/{{item.id}}"><p>{{item}}<p></a>
+                <p>Rental Date: {{item.rental_date}}<p>
+                <p>Return Date: {{item.return_date}}<p>
+                <p>Customer: {{item.customer}}<p>
+                <p>vehicle: {{item.vehicle}}<p>
+            </div>
+        {%endfor%}
+{%endblock%}

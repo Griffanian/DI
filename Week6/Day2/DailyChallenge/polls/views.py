@@ -8,33 +8,26 @@ def homepage(request):
     return render(request,'index.html',context)
 
 def new_gif(request):
-    submitted=False
     if request.method == 'POST':
         form = GifForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/new_gif?submitted=True')
     else:
         form = GifForm
-        if 'submitted' in request.GET:
-            submitted = True
 
-    context = {'form':form,'submitted':submitted}
+    context = {'form':form}
     return render(request,'form.html',context)
 
 def new_cat(request):
-    submitted=False
+
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/new_cat?submitted=True')
+
     else:
         form = CategoryForm
-        if 'submitted' in request.GET:
-            submitted = True
-
-    context = {'form':form,'submitted':submitted}
+    context = {'form':form}
     return render(request,'form.html',context)
 
 def display_cat(request,id):
@@ -52,8 +45,27 @@ def display_gif(request,id):
     return render(request,'cat_view.html',context)
 
 def likes(request):
-    gifs_all=Gif.objects.all()
-    like_dislike_forms=[LikeForm(initial=({'gif':gif_instance})) for gif_instance in gifs_all]
-    gif_forms=list(zip(gifs_all,like_dislike_forms))
+
+    if request.method == 'POST':
+        likeform_submitted = LikeForm(request.POST)
+        if likeform_submitted.is_valid():
+
+            gif = likeform_submitted.cleaned_data['gif']
+            like = likeform_submitted.cleaned_data['like']
+
+            if like:
+                gif.likes += 1
+            else:
+                gif.likes -= 1
+
+            gif.save()
+
+    gifs_all=Gif.objects.all().order_by('title', 'likes')
     
+    like_forms=[LikeForm(initial=({'gif':gif_instance, 'like': True})) for gif_instance in gifs_all]
+    dislike_forms=[LikeForm(initial=({'gif':gif_instance, 'like':False})) for gif_instance in gifs_all]
+
+    gif_forms=list(zip(gifs_all,like_forms,dislike_forms))
+    
+    context={'gif_forms':gif_forms}
     return render(request,'likes.html',context)

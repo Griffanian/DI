@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div style=" width:fit-content">
+    <h3>Unrented</h3>
+    {%for key,value in unrented%}
+        <h4>{{key}}</h4>
+        <div style="display:flex; flex-wrap:wrap; width:fit-content">
+            {%for item in value%}
+                <div style="border: 1px solid black; padding:5px;">
+                    <a href="/rent/vehicle/{{item.id}}"><p>{{item}}</p></a>
+                    <p>Date Created: {{item.date_created}}</p></a>
+                    <p>Real Cost: {{item.real_cost}}</p>
+                </div>
+            {%endfor%}
+        </div>
+    {%endfor%}
+    <h3>Rented</h3>
+    {%for key,value in unrented%}
+        <h4>{{key}}</h4>
+        <div style="display:flex; flex-wrap:wrap; width:fit-content">
+            {%for item in value%}
+                <div style="border: 1px solid black; padding:5px;">
+                    <a href="/rent/vehicle/{{item.id}}"><p>{{item}}</p></a>
+                    <p>Date Created: {{item.date_created}}</p></a>
+                    <p>Real Cost: {{item.real_cost}}</p>
+                </div>
+            {%endfor%}
+        </div>
+    {%endfor%}
+</div>
+
+
+
+{%endblock%}

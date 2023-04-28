@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<h1 style="display:flex; justify-content:center">Unreturned</h1>
+<div style="display:flex; flex-wrap:wrap; justify-content:center">
+    {%for item in unreturned%}
+        <div style="border: 1px solid black; margin:5px; padding:5px; width:300px">     
+            <a href="{{item.id}}"><p>Rental: #{{item.id}}</p></a>
+            <p>Rented on: {{item.rental_date}}</p>
+            <p>Returned on: {{item.return_date}}</p>
+            <a href="/rent/customer/{{item.customer.id}}"><p>Rented by: {{item.customer.first_name}} {{item.customer.last_name}}</p></a>
+            <p>Vehicle:#{{item.vehicle.id}}, {{item.vehicle.vehicle_type.name}}, {{item.vehicle.size.name}}</p>
+        </div>
+    {%endfor%}
+</div>
+<br />
+<h1 style="display:flex; justify-content:center">Returned</h1>
+<div style="display:flex; flex-wrap:wrap; justify-content:center">
+    {%for item in unreturned%}
+        
+            <div style="border: 1px solid black; margin:5px; padding:5px; width:300px">  
+                <a href="{{item.id}}"><p>Rental: #{{item.id}}</p></a>
+                <p>Returned on: {{item.return_date}}</p>
+                <p>Rented by: {{item.customer.first_name}} {{item.customer.last_name}}</p>
+                <p>Vehicle:#{{item.vehicle.id}}, {{item.vehicle.vehicle_type.name}}, {{item.vehicle.size.name}}</p>
+            </div>
+        
+    {%endfor%}
+</div>
+{%endblock%}

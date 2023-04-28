@@ -1,5 +1,5 @@
 """
-URL configuration for DailyChallenge project.
+URL configuration for rent project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,14 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from polls import views 
+from polls import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.homepage),
-    path('new_gif/',views.new_gif),
-    path('new_cat/',views.new_cat),
-    path('cat_view/<str:id>',views.display_cat),
-    path('gif_view/<str:id>',views.display_gif),
-    path('likes/',views.likes)
+    path('rent/rental/',views.show_all_rentals),
+    path('rent/rental/<int:pk>',views.show_1_rental),
+    path('rent/rental/add',views.new_rental),
+    path('rent/customer/<int:pk>',views.show_1_customer),
+    path('rent/customer/',views.show_all_customers),
+    path('rent/customer/add',views.new_customer),
+    path('rent/vehicle/',views.show_all_vehicles),
+    path('rent/vehicle/<int:pk>',views.show_1_vehicle),
+    path('rent/vehicle/add',views.new_vehicle),
 ]

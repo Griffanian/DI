@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div style="display:flex; flex-wrap:wrap;">
+    {%for item in customers%}
+        <div style="border: 1px solid black; margin:5px; padding:5px; width:300px">     
+            <a href="{{item.id}}"><p>Name:{{item}}</p></a>
+            <p>Id:#{{item.id}}</p>
+            <p>Email:{{item.email}}</p>
+            <p>Phone Number: {{item.phone}}</p>
+            <p>Address: {{item.address}}</p>
+            <p>City: {{item.city}}</p>
+            <p>country: {{item.country}}</p>
+        </div>
+    {%endfor%}
+</div>
+{%endblock%}

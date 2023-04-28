@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div style="display:flex; flex-wrap:wrap; justify-content: space-evenly;">
+  <div>
+    <p>{{item}}<p>
+    <p>Rental Date: {{item.rental_date}}<p>
+    <p>Return Date: {{item.return_date}}<p>
+    <p>Customer: {{item.customer}}<p>
+    <p>vehicle: {{item.vehicle}}<p>
+  <div>
+</div>
+{%endblock%}
