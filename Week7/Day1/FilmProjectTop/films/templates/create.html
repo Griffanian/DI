@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+
+<h1>Create Film</h1>
+{%block content%}
+
+<div style="display:flex; width=100vw; justify-content: center; border: 1px solid black; margin:5px; padding:5px; width:min-content">
+    <form style="display:flex; flex-direction:column" method="post" action=''>
+        {%csrf_token%}
+        {{form}}
+        <br />
+        <input type="submit">
+    </form>
+<div>
+
+{% endblock %}

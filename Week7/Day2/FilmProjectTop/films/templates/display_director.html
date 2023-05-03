@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div style='display:flex; justify-content:center;'>
+    <div style="border: 1px solid black; margin:5px; padding:5px; width:fit-content">
+        <h3>{{item}}</h3>
+        <p>Films:
+            {%for thing in item.related_films.all%}
+                <a href="/show-film/{{thing.id}}">{{thing}}</a>,
+                <br />
+            {%endfor%}
+            <br />
+            {%if user.is_authenticated%}
+                <a href="/update-director/{{item.id}}">edit director</a>
+                <a href="/delete-director/{{item.id}}">delete director</a>
+            {%endif%}
+        </p>
+    </div>
+</div>
+
+{% endblock %}

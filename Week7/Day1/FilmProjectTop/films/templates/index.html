@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h1>Films</h1>
+
+<div style="display:flex; flex-wrap:wrap;">
+    {%for item in films%}
+        <div style="display:flex; flex-wrap:wrap; border: 1px solid black; margin:5px; padding:5px; width:fit-content">
+            {{item}}
+        </div>
+    {%endfor%}
+</div>
+
+<h1>Directors</h1>
+
+<div style="display:flex; flex-wrap:wrap;">
+    {%for item in directors%}
+        <div style="display:flex; flex-wrap:wrap; border: 1px solid black; margin:5px; padding:5px; width:fit-content">
+            {{item}}
+        </div>
+    {%endfor%}
+</div>
+{% endblock %}
