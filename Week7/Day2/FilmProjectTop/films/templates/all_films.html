@@ -1,27 +1,27 @@
 {%extends 'base.html'%}
 
 {%block content%}
+<div class="film-block">
+    <h1 class="film-title">{{name}}</h1>
 
-<h1>{{name}}</h1>
-
-<div style="display:flex; flex-wrap:wrap;">
-    {%for item in items%}
-        <div style="border: 1px solid black; margin:5px; padding:5px; width:370px">
-            <a href="/show-film/{{item.id}}"><h3>{{item}} </h3></a>
-            <h5>By
-            {%for thing in item.director.all%}
-            <a href="/show-director/{{thing.id}}">{{thing}}</a>,
-            {%endfor%}
-            </h5>
-            <p>Date: {{item.release_date}}</p>
-            <p>Categories:
-            {%for thing in item.category.all%}
-            {{thing}},
-            {%endfor%}
-            </p>
-            <p>Country: {{item.created_in_country}}</p>
-        </div>
-    {%endfor%}
+    <div style="display:flex; flex-direction:column;">
+        {%for item in items%}
+            <div class="film-item">
+                <div>
+                    <a href="/show-film/{{item.id}}"><h3>{{item}} </h3></a>
+                    <h5>By
+                    {%for thing in item.director.all%}
+                    <a href="/show-director/{{thing.id}}">{{thing}}</a>,
+                    {%endfor%}
+                    </h5>
+                </div>
+                <div>
+                    {%for poster in item.poster.all%}
+                        <img src = "{{poster.image}}" height=70px>
+                    {%endfor%}
+                </div>
+            </div>
+        {%endfor%}
+    </div>
 </div>
-
 {% endblock %}

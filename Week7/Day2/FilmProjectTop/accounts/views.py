@@ -50,6 +50,5 @@ class SignUpView(CreateView):
 @login_required
 def profile_view(request):
     user = request.user
-    date_joined = user.date_joined
-    context = {'date_joined': date_joined}
+    context = {'user':user}
     return render(request, 'profile.html' ,context)

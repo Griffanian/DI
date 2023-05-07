@@ -10,7 +10,7 @@
                 <br />
             {%endfor%}
             <br />
-            {%if user.is_authenticated%}
+            {%if user.is_superuser%}
                 <a href="/update-director/{{item.id}}">edit director</a>
                 <a href="/delete-director/{{item.id}}">delete director</a>
             {%endif%}

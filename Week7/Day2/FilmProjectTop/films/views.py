@@ -4,10 +4,9 @@ from django.views import generic
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import FilmForm, DirectorForm, AddPosterForm, AddRatingForm, AddCommentForm
-from .models import Film,Director,Poster,Rating,Comment
+from .forms import FilmForm, DirectorForm, AddRatingForm, AddCommentForm, AddPosterForm
+from .models import Film,Director,Rating,Comment,Poster,User
 from statistics import mean
-import datetime
 
 
 def display_homepage(request):
@@ -43,11 +42,6 @@ class CreateFilm(LoginRequiredMixin, generic.CreateView):
     form_class=FilmForm
     success_url=reverse_lazy("all-film")
 
-class CreatePoster(generic.CreateView):
-    template_name='create.html'
-    model=Poster
-    form_class=AddPosterForm
-    success_url=reverse_lazy("all-films")
 
 class CreateDirector(generic.CreateView):
 
@@ -70,7 +64,8 @@ class ReadFilm(generic.detail.DetailView):
             context['ratings'] = ratings
         except:
             pass
-        context['comments']=[item.comment for item in Comment.objects.filter(film_id=context['item'].id)]
+        context['poster']=Poster.objects.filter(film_id=context['item'].id)
+        context['comments']=[item for item in Comment.objects.filter(film_id=context['item'].id)]
         return context
 
 def add_rating(request, pk):
@@ -78,11 +73,12 @@ def add_rating(request, pk):
     if request.method == 'POST':
         form = AddRatingForm(request.POST)
         if form.is_valid():
+            user = request.user
             film = form.cleaned_data['film']
             stars = form.cleaned_data['stars']
-            rating = Rating.objects.create(film=film,stars=stars)
+            rating = Rating.objects.create(user=user, film=film,stars=stars)
             rating.save()
-            return redirect('/all-film/')
+            return redirect(f'/show-film/{pk}')
     else:
         form = AddRatingForm(initial={'film': film})
     return render(request, 'create.html', {'form': form, 'film': film})
@@ -94,11 +90,26 @@ def add_comment(request, pk):
         if form.is_valid():
             film = form.cleaned_data['film']
             comment = form.cleaned_data['comment']
-            rating = Comment.objects.create(film=film,comment=comment)
+            user = request.user
+            rating = Comment.objects.create(film=film,comment=comment,user=user)
             rating.save()
-            return redirect('/all-film/')
+            return redirect(f'/show-film/{pk}')
     else:
         form = AddCommentForm(initial={'film': film})
+    return render(request, 'create.html', {'form': form, 'film': film})
+
+def add_poster(request, pk):
+    film = Film.objects.get(id=pk)
+    if request.method == 'POST':
+        form = AddPosterForm(request.POST)
+        if form.is_valid():
+            film = form.cleaned_data['film']
+            image = form.cleaned_data['image']
+            posters = Poster.objects.create(film=film,image=image)
+            posters.save()
+            return redirect(f'/show-film/{pk}')
+    else:
+        form = AddPosterForm(initial={'film': film})
     return render(request, 'create.html', {'form': form, 'film': film})
 
 class ReadDirector(generic.detail.DetailView):
@@ -111,7 +122,7 @@ class UpdateFilm(generic.edit.UpdateView):
     model=Film
     fields = '__all__'
     template_name = 'create.html'
-    success_url = 'all'
+    success_url = reverse_lazy("all-film")
 
 class UpdateDirector(generic.edit.UpdateView):
 

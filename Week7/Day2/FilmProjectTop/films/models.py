@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import datetime,django
 class Country(models.Model):
     name=models.CharField(max_length=50)
@@ -31,12 +32,18 @@ class Director(models.Model):
         return f"{self.first_name} {self.last_name}"
     
 class Poster(models.Model):
+    film=models.ForeignKey(Film,on_delete=models.CASCADE,related_name='poster')
     image=models.URLField()
 
 class Rating(models.Model):
+    user=models.ForeignKey(User,on_delete=models.SET_NULL,related_name='rating',null=True,blank=True)
     film=models.ForeignKey(Film,on_delete=models.CASCADE,related_name='rating')
     stars=models.IntegerField()
 
+    def get_range(self):
+        return range(self.stars)
+
 class Comment(models.Model):
+    user=models.ForeignKey(User,on_delete=models.SET_NULL,related_name='comment',null=True,blank=True)
     film=models.ForeignKey(Film,on_delete=models.CASCADE,related_name='comment')
     comment=models.TextField()
