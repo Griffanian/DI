@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import json
-with open('/Users/Miles/DI/Week8/django_env/secret.json') as f:
+with open('/Users/Miles/DI/django_env/secret.json') as f:
     SECRETS = json.load(f)
 # now we need to assign SECRET_KEY to data from the file
 SECRET_KEY = SECRETS['SECRET_KEY']
