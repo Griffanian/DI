@@ -15,9 +15,15 @@ from rest_framework.status import (HTTP_200_OK,
 class StudentListView(mixins.ListModelMixin,
                       mixins.CreateModelMixin,
                       generics.GenericAPIView):
+    
     def get_queryset(self):
-        queryset = Student.objects.all().order_by('date_joined')
-        return super().get_queryset()
+    
+        if self.request.query_params.get("date_joined") is not None:
+            date_joined = self.request.query_params.get("date_joined")
+            queryset = Student.objects.all().filter(date_joined=date_joined)
+        else:
+            queryset = Student.objects.all()
+        return queryset
     
     
     serializer_class = StudentSerializer
