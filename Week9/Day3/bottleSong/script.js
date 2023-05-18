@@ -19,24 +19,12 @@ bottlesChange = bottlesStart
 console.log(bottlesStart)
 console.log(bottlesChange)
 for (let i = 1; i <= bottlesStart; i++) {
-    if (bottlesChange === 1) {
-        console.log("We have 1 bottle of beer on the wall");
-    } else {
-        console.log("We have " + bottlesChange + " bottle of beer on the wall");
-    }
-    
-    if (i === 1) {
-        console.log("Take _1_ down, pass it around");
-    } else {
-        console.log("Take _" + i + "_ down, pass them around");
-    }
+    console.log(bottlesChange + " " + (bottlesChange === 1 ? "bottle" : "bottles") + " of beer on the wall");
+    console.log(bottlesChange + " " + (bottlesChange === 1 ? "bottle" : "bottles") + " of beer");
+    console.log("Take _" + (i > bottlesChange ? bottlesChange : i) + "_ down, pass " + (i === 1 ? "it" : "them") + " around");
     bottlesChange -= i;
-    if (bottlesChange === 0){
-        console.log("We now have no bottles");
+    console.log("We now have " + (bottlesChange > 0 ? bottlesChange : "no") + " " + (bottlesChange === 1 ? pluralBottles : "bottle"));
+    if (bottlesChange <= 0){
         break
-    } else if (bottlesChange === 1) {
-        console.log("We now have 1 bottle");
-    } else {
-        console.log("We have " + bottlesChange + " bottle of beer on the wall");
     }
 }
