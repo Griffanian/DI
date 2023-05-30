@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+        iframe{
+            width:480;
+            height:270;
+        }
+
+    </style>
+</head>
+<body>
+    <form name="newGifForm" action="" onSubmit="addGif(event)" method="get">
+        Search for Gifs: <input type="text" name="search">
+        <input type="submit" value="Submit">
+    </form>
+    <div id="container">
+    </div>
+    <button onclick="deleteAll()">Delete All</button>
+    <script src="script.js"></script>
+</body>
+</html>
