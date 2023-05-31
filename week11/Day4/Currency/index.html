@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Currency Converter</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Convert Your currencies</h1>
+        <hr>
+        <form name="myForm" onsubmit="convert(event)" method="post">
+            <p>From</p>
+            <select id="fcurrrency" name="fcurrrency"></select>
+            <input type="button" onclick="switchCur()">
+            <p>To</p> <select id="scurrrency" name="scurrrency"></select>
+            <p>Amount</p> <input type="text" name="Amount">
+            <input type="submit" value="Convert">
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script src="currencies.json"></script>
+    <script src="script.js"></script>
+</body>
+</html>

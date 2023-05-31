@@ -1,0 +1,64 @@
+body{
+    display: flex;
+    justify-content: center;
+    font-family: "Trebuchet MS" ;
+    color: white;
+}
+#container,#result{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+hr{
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:#8c52ff;
+    height: 1px;
+}
+#container{
+    background-color: rgba(56,182,255,0.5);
+    width: fit-content;
+    padding: 10px;
+    border: solid 2px #8c52ff;
+    border-radius: 10px
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+select,input{
+    font-size: 20px;
+    border: solid 2px#8c52ff;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+form p,h1,#result {
+    font-size: 40px;
+    font-weight: bold;
+    align-self: center;
+    margin: 2px;
+}
+#result p {
+    margin: 0;
+}
+input[type="button"]{
+    background:url("https://user-images.githubusercontent.com/30896388/148588337-233540b7-aac6-4b25-bbf4-520765380f59.png") no-repeat center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    height: 60px;
+}
+input[type="submit"]{
+    background-color: #38b6ff;
+}
+input:nth-of-type(odd){
+    margin-top:25px;
+}

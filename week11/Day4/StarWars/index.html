@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">    <title>Star Wars Charecters</title>
+</head>
+<body>
+    <header>
+        <img id="logo" src="imgs\Daco_3822701.png" alt="Star Wars Logo">
+    </header>
+    <section>
+        <div id="notFound">
+            <h3>Oh No! That person is not available.</h3>
+        </div>
+        <div id = "loader">
+            <div class="spinner-border mt-4" style="width: 150px; height: 150px;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <p>Loading...</p>
+        </div>
+        <div id = "content">
+            <h1 id="name">Name:</h1>
+            <p id="height">Height:</p>
+            <p id="gender">Gender:</p>
+            <p id="birth-year">Birth Year:</p>
+            <p id="home-world">Home World:</p>
+        </div>
+    </section>
+    <button onclick="updatePage()">Find someone</button>
+    <script src="script.js"></script>
+</html>

@@ -1,0 +1,41 @@
+body{
+    background: black url(https://i.giphy.com/media/TxVVB6PfWMjE4/200.webp) center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Helvetica Neue';
+}
+header{
+    width: fit-content;
+}
+
+#logo{
+    width: 400px;
+}
+
+section{
+    border: 3px solid yellow;
+    border-radius: 15px;
+    width: 600px;
+    height: 250px;
+    margin: 25px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;   
+}
+h1{
+    font-size: 30px;
+}
+button{
+    border: 3px solid yellow;
+    border-radius: 10px;
+    width: 180px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+#loader p{
+    font-size: 40px;
+}
