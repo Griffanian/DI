@@ -1,0 +1,14 @@
+{
+  "name": "nodemon",
+  "version": "1.0.0",
+  "description": "cool",
+  "main": "main.js",
+  "scripts": {
+    "test": "console.log(\"worked\")"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
