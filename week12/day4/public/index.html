@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form name="login" onsubmit="runLogin(event)" method="post">
+        Username: <input type="text" name="username">
+        Password: <input type="text" name="password">
+        <input type="submit" value="Login">
+    </form>
+    <p id="loginInfo"></p>
+    <br /><br />
+    <h1>Register</h1>
+    <form name="register"action="/user"  onsubmit="runRegister()" method="post">
+        First Name: <input type="text" name="fname">
+        Last Name: <input type="text" name="lname">
+        Email: <input type="text" name="email">
+        Username: <input type="text" name="username">
+        Password: <input type="text" name="password">
+        <input type="submit" value="Register">
+    </form>
+    <p id="resgisterInfo"></p>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
+
