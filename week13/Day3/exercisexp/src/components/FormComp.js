@@ -12,7 +12,7 @@ const FormComp = (props) => {
 
     return(
         <>
-            <form style={{'display':'flex','flex-direction':'column','alignItems':'flex-start'}}> 
+            <form style={{'display':'flex','flexDirection':'column','alignItems':'flex-start'}}> 
                 <input type='text' name='fname' placeholder="First Name" onChange={(e) => setFname(e.target.value)}/>
                 <br />
                 <input type='text' name='lname' placeholder="Last Name" onChange={(e) => setLname(e.target.value)}/>
@@ -20,11 +20,11 @@ const FormComp = (props) => {
                 <input type='text' name='age'  placeholder="age" onChange={(e) => setAge(e.target.value)}/>
                 <br />
                 <label>
-                    <input type="radio" name="gender"value="male" checked={gender === 'male'} onChange={(e) => setGender(e.target.value)}/>
+                    <input type="radio" name="gender"value="Male" onChange={(e) => setGender(e.target.value)}/>
                     Male
                 </label>
                 <label>
-                    <input type="radio" name="gender"value="female" checked={gender === 'female'} onChange={(e) => setGender(e.target.value)}/>
+                    <input type="radio" name="gender"value="Female" onChange={(e) => setGender(e.target.value)}/>
                     Female
                 </label>
                 <br />
@@ -44,8 +44,8 @@ const FormComp = (props) => {
                     Lactose Free
                 </label>
                 <label>
-                    <input type='checkbox' name='vegan' onChange={(e) => setVegan(e.target.value)}/>
-                    vegan
+                    <input type='checkbox' name='vegan' onChange={(e) => {setVegan(e.target.value)}}/>
+                    Vegan
                 </label>
                 <input type="submit" value="submit"></input>
             </form>
