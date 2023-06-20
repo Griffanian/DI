@@ -1,4 +1,4 @@
-export const addTransaction = value => {
+export const addTransaction = (value) => {
     return{
         type:'ADD',
         payload: value

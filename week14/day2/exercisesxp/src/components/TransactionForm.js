@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import store from '../redux/store';
+import { addTransaction } from '../redux/actions';
 
 class TransactionForm extends React.Component{
     constructor(props){
@@ -16,10 +16,10 @@ class TransactionForm extends React.Component{
     handleSubmit = (event) => {
         event.preventDefault()
         console.log(this.state)
+        
     }
     componentDidMount = () => {
-        console.log(store.getState())
-        console.log('props=> ' + this.props);
+        
     }
     render(){
         return(
@@ -36,8 +36,9 @@ class TransactionForm extends React.Component{
                     <br/>
                     <button type="submit">Submit</button>
                 </form>
-                <h1>{JSON.stringify(this.props)}</h1>
-                <h1>{JSON.stringify(store)}</h1>
+                <h1>props = {JSON.stringify(this.props)}</h1>
+                <p>states = {JSON.stringify(this.state)}</p>
+                <p>dispatch = {JSON.stringify(dispatch)}</p>
                 <hr/>
                 <table>
                     <tbody>
@@ -58,4 +59,10 @@ const mapStateToProps = (state) => {
     return { state }
 }
 
-export default connect(mapStateToProps)(TransactionForm)
+const mapDispatchToProps = (dispatch) => {
+    return {
+      add: () => dispatch(addTransaction),
+    }
+  }
+
+export default connect(mapDispatchToProps,mapStateToProps)(TransactionForm)
